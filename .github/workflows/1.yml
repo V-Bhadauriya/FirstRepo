@@ -17,7 +17,7 @@ jobs:
           GITHUB_BRANCH: ${{ github.ref_name }}
 
       - name: Trigger second repo workflow
-        uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml
+        uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml@main
         with:
           ref: ${{ github.ref_name }}
         secrets:
