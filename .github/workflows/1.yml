@@ -17,6 +17,8 @@ jobs:
 
   deploy-golden-stress-vm:
     name: Calling another workflow
-    uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml@"${{ github.ref_name }}"
+    uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml@main
     secrets:
       GH_PAT: ${{ secrets.GH_PAT }}
+    with:
+      branch: ${{ github.ref_name }}
