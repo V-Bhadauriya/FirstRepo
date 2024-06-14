@@ -14,11 +14,11 @@ jobs:
       - name: Prints the current branch name
         run: echo "${GITHUB_BRANCH##*/}"
         env:
-          GITHUB_BRANCH: ${{ github.ref }}
+          GITHUB_BRANCH: ${{ github.ref_name }}
 
-#      - name: Trigger second repo workflow
-#        uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml
-#        with:
-#          ref: ${{ github.ref }}
-#        secrets:
-#          GH_PAT: ${{ secrets.GH_PAT }}
+      - name: Trigger second repo workflow
+        uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml
+        with:
+          ref: ${{ github.ref_name }}
+        secrets:
+          GH_PAT: ${{ secrets.GH_PAT }}
