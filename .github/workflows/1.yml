@@ -15,7 +15,7 @@ jobs:
       run: echo "Current branch: ${{ github.ref_name }}"
 
     - name: Trigger second repo workflow
-      uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml@main
+      uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml
       with:
         ref: ${{ github.ref_name }}
       secrets:
