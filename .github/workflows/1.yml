@@ -14,9 +14,9 @@ jobs:
       - name: Print branch name
         run: echo "Current branch: ${{ github.ref }}"
 
-      - name: Trigger second repo workflow
-        uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml
-        with:
-          ref: ${{ github.ref }}
-        secrets:
-          GH_PAT: ${{ secrets.GH_PAT }}
+#      - name: Trigger second repo workflow
+#        uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml
+#        with:
+#          ref: ${{ github.ref }}
+#        secrets:
+#          GH_PAT: ${{ secrets.GH_PAT }}
