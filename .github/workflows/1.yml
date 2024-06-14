@@ -15,9 +15,10 @@ jobs:
         env:
           GITHUB_BRANCH: ${{ github.ref_name }}
 
-      - name: Trigger second repo workflow
-        uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml@main
-        with:
-          ref: ${{ github.ref_name }}
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+  deploy-golden-stress-vm:
+    name: Calling another workflow
+    uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml@main
+    with:
+      ref: ${{ github.ref_name }}
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
