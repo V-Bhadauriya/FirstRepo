@@ -6,7 +6,6 @@ on:
 jobs:
   trigger:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -20,5 +19,5 @@ jobs:
         uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml@main
         with:
           ref: ${{ github.ref_name }}
-        secrets:
+        env:
           GH_PAT: ${{ secrets.GH_PAT }}
