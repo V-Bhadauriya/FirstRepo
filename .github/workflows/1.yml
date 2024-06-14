@@ -1,0 +1,22 @@
+name: Trigger Second Repo Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Print branch name
+      run: echo "Current branch: ${{ github.ref_name }}"
+
+    - name: Trigger second repo workflow
+      uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml@main
+      with:
+        ref: ${{ github.ref_name }}
+      secrets:
+        GH_PAT: ${{ secrets.GH_PAT }}
