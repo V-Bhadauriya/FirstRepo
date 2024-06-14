@@ -8,15 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Print branch name
-      run: echo "Current branch: ${{ github.ref_name }}"
+      - name: Prints the current branch name
+        run: echo "${GITHUB_BRANCH##*/}"
+        env:
+          GITHUB_BRANCH: ${{ github.ref }}
 
-    - name: Trigger second repo workflow
-      uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml
-      with:
-        ref: ${{ github.ref_name }}
-      secrets:
-        GH_PAT: ${{ secrets.GH_PAT }}
+#      - name: Trigger second repo workflow
+#        uses: V-Bhadauriya/SecondRepo/.github/workflows/2.yml
+#        with:
+#          ref: ${{ github.ref }}
+#        secrets:
+#          GH_PAT: ${{ secrets.GH_PAT }}
